@@ -75,6 +75,7 @@ public class RpcServer {
             //循环实例化
             for(Class<?> cla:classes){
                 Object obj = cla.newInstance();
+                //解析anno并注入servicemap！！！！！！
                 services.put(cla.getAnnotation(chenxr.rpc.anno.RpcService.class).value().getName(), obj);
             }
             return services;
